@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <title>Modify</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style/main.css" />
+</head>
+<body>
+<div th:replace="~{fragments/header :: headerFragment}"></div>
+<h1>회원정보 수정</h1>
+<form th:action="@{/modify}" method="post">
+    <div>
+        <table>
+            <tr>
+                <td>회원번호</td>
+                <td><input type="text" name="m_no" th:value="${member.m_no}" readonly /></td>
+            </tr>
+            <tr>
+                <td>아이디</td>
+                <td><input type="text" name="m_id" th:value="${member.m_id}" /></td>
+            </tr>
+            <tr>
+                <td>비밀번호</td>
+                <td><input type="password" name="m_pw" th:value="${member.m_pw}" /></td>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td><input type="text" name="m_name" th:value="${member.m_name}" /></td>
+            </tr>
+            <tr>
+                <td>이메일</td>
+                <td><input type="text" name="m_email" th:value="${member.m_email}" /></td>
+            </tr>
+        </table>
+        <br>
+        <button type="submit">수정</button>
+        <button type="button" th:onclick="'location.href=' + @{/list}">취소</button>
+    </div>
+</form>
+</body>
+</html>
